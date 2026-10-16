@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "1.0.0",
+  "name": "RG_SingingAI_Dataset",
+  "language": "ja",
+  "speaker_count_initial": 1,
+  "audio": {
+    "sample_rate": 44100,
+    "channels": 1,
+    "bit_depth_recommended": 24,
+    "format": "WAV PCM"
+  },
+  "frame": {
+    "fft_size": 2048,
+    "hop_size": 256,
+    "frame_rate_hz": 172.265625
+  }
+}

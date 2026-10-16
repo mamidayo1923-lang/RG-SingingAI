@@ -1,0 +1,47 @@
+schema_version: "1.0.0"
+dataset_version: "1.0.0"
+
+audio:
+  sample_rate: 44100
+  channels: 1
+  bit_depth_recommended: 24
+  preserve_original: true
+
+frame:
+  fft_size: 2048
+  hop_size: 256
+  window: hann
+
+mel:
+  bins: 128
+  fmin: 20.0
+  fmax: null
+
+f0:
+  extractor_preference:
+    - pyworld
+    - librosa
+  f0_floor: 50.0
+  f0_ceil: 1200.0
+
+features:
+  spectral_envelope: true
+  hnr: true
+  formants: true
+  aperiodicity: true
+  breathiness: true
+  voice_quality: true
+
+formants:
+  count: 4
+  max_formant_hz: 5500.0
+
+quality_control:
+  clipping_threshold: 0.999
+  silence_rms_dbfs: -60.0
+  dc_offset_abs_max: 0.01
+  max_invalid_f0_ratio: 0.70
+
+output:
+  dtype: float32
+  save_json_indent: 2

@@ -1,0 +1,7 @@
+{
+  "name": "RG Singing AI Recording Tool GUI",
+  "version": "1.0.0",
+  "build_date": "2026-10-14",
+  "platform": "Windows 10/11 x64",
+  "notes": "GUI and recording backend separated; Windows EXE build via PyInstaller script"
+}
