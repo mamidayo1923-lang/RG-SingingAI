@@ -1,0 +1,19 @@
+{
+  "qc_schema_version": "1.0.0",
+  "sample_rate": 44100,
+  "channels": 1,
+  "subtype": "PCM_24",
+  "frames": 218112,
+  "duration_sec": 4.94585,
+  "peak_dbfs": -0.58,
+  "rms_dbfs": -16.87,
+  "silence_ratio": 0.283863,
+  "clipping_ratio": 0.0,
+  "errors": [],
+  "warnings": [
+    "無音率が高めです。休符・ブレス・録音開始前後の無音を考慮して確認してください"
+  ],
+  "passed": true,
+  "status": "WARN",
+  "interpretation": "無音率・ピークは自動判定だけで録音を破棄せず、休符やブレスを含めて確認してください"
+}
