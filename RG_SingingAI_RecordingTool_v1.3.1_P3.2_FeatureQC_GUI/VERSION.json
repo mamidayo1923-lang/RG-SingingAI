@@ -1,0 +1,22 @@
+{
+  "name": "RG Singing AI Recording Tool",
+  "version": "1.3.1-P3.1",
+  "package_version": "1.3.1",
+  "based_on": "1.3.0-P3.0 Experimental",
+  "release_date": "2026-10-15",
+  "scope": [
+    "All P0/P1/P2 recording and analysis features retained",
+    "Reviewed annotation to frame-aligned NPZ dataset builder",
+    "NPZ shape/finiteness/value validation",
+    "Training/validation MSE logging and best checkpoint selection",
+    "Expanded alignment validation and dataset pipeline tests"
+  ],
+  "limitations": [
+    "No acoustic forced alignment; phoneme timestamps must be reviewed or externally aligned",
+    "Builder currently assigns vocabulary IDs per item; multi-take training requires a shared vocabulary mapping",
+    "Validation split in trainer is file-level; use song/phrase group splits to avoid leakage",
+    "Mel predictor and Griffin-Lim renderer are experimental and not production-quality singing synthesis",
+    "Feature inversion/filter-bank consistency is not yet calibrated"
+  ],
+  "release_stage": "experimental research prototype"
+}
