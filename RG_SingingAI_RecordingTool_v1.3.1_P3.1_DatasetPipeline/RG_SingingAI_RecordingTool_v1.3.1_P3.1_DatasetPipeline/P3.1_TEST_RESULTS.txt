@@ -1,0 +1,34 @@
+
+STDERR:
+test_builds_frame_aligned_npz (test_dataset_builder.DatasetBuilderTests.test_builds_frame_aligned_npz) ... ok
+test_refuses_overwrite (test_dataset_builder.DatasetBuilderTests.test_refuses_overwrite) ... ok
+test_rejects_missing_times (test_dataset_builder.DatasetBuilderTests.test_rejects_missing_times) ... ok
+test_rejects_overlapping_phonemes (test_dataset_builder.DatasetBuilderTests.test_rejects_overlapping_phonemes) ... ok
+test_atomic_json_and_hash (test_p0.P0Tests.test_atomic_json_and_hash) ... ok
+test_metadata_validation_reports_missing_fields (test_p0.P0Tests.test_metadata_validation_reports_missing_fields) ... ok
+test_qc_pass_for_valid_wav (test_p0.P0Tests.test_qc_pass_for_valid_wav) ... ok
+test_silence_is_warning_not_failure (test_p0.P0Tests.test_silence_is_warning_not_failure) ... ok
+test_baseline_feature_extraction (test_p1.P1Tests.test_baseline_feature_extraction) ... ok
+test_group_split_has_no_leakage_and_is_deterministic (test_p1.P1Tests.test_group_split_has_no_leakage_and_is_deterministic) ... ok
+test_onset_mae (test_p1.P1Tests.test_onset_mae) ... ok
+test_pitch_metrics (test_p1.P1Tests.test_pitch_metrics) ... ok
+test_split_rejects_missing_group (test_p1.P1Tests.test_split_rejects_missing_group) ... ok
+test_split_requires_consistent_group_key (test_p1.P1Tests.test_split_requires_consistent_group_key) ... ok
+test_baseline_and_p2_share_frame_convention (test_p2.P2Tests.test_baseline_and_p2_share_frame_convention) ... ok
+test_invalid_hop_rejected (test_p2.P2Tests.test_invalid_hop_rejected) ... ok
+test_missing_file_rejected (test_p2.P2Tests.test_missing_file_rejected) ... ok
+test_p2_feature_shapes_finite_and_aligned (test_p2.P2Tests.test_p2_feature_shapes_finite_and_aligned) ... ok
+test_short_audio_is_padded_to_one_frame (test_p2.P2Tests.test_short_audio_is_padded_to_one_frame) ... ok
+test_silence_is_finite_and_f0_zero (test_p2.P2Tests.test_silence_is_finite_and_f0_zero) ... ok
+test_stereo_rejected (test_p2.P2Tests.test_stereo_rejected) ... ok
+test_wrong_sample_rate_rejected (test_p2.P2Tests.test_wrong_sample_rate_rejected) ... ok
+test_bad_note (test_singing_modules.AlignmentTests.test_bad_note) ... ok
+test_draft_alignment_flags_estimates (test_singing_modules.AlignmentTests.test_draft_alignment_flags_estimates) ... ok
+test_supplied_boundaries (test_singing_modules.AlignmentTests.test_supplied_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.149s
+
+OK
+
+EXIT_CODE=0
