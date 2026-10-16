@@ -1,0 +1,36 @@
+{
+  "feature_schema_version": "2.1.0",
+  "inherits": "P1 log-Mel + diagnostic autocorrelation F0",
+  "sample_rate": 44100,
+  "n_fft": 2048,
+  "hop_length": 256,
+  "n_mels": 80,
+  "frame_time_convention": "frame start time; no center correction; short files are zero-padded to one frame",
+  "outputs": {
+    "frame_times_sec": "(frames,) frame-start timestamps in seconds",
+    "frame_rms": "(frames,) frame RMS amplitude",
+    "log_mel": "(frames,80) natural-log Mel power; diagnostic representation",
+    "f0_hz": "(frames,) FFT-autocorrelation F0 estimate; 0 means unvoiced/low confidence",
+    "f0_confidence_proxy": "(frames,) normalized autocorrelation peak proxy; not calibrated probability",
+    "spectral_envelope": "(frames,1025) log cepstrally smoothed magnitude envelope estimate",
+    "hnr_db_proxy": "(frames,) autocorrelation-derived periodicity proxy in dB; not calibrated HNR",
+    "formants_hz_estimate": "(frames,3) up to 3 coarse spectral peak estimates; zeros mean unavailable",
+    "formant_peak_strength_proxy": "(frames,3) selected peak amplitude relative to largest envelope peak; not formant confidence probability",
+    "aperiodicity_proxy": "(frames,) spectral flatness in [0,1]",
+    "breathiness_proxy": "(frames,) fraction of spectral power at/above 4 kHz in [0,1]",
+    "voice_quality_proxy": "(frames,3) columns [hnr_db_proxy, aperiodicity_proxy, breathiness_proxy]"
+  },
+  "validation": {
+    "input": "mono WAV, exactly 44100 Hz, finite samples, non-empty",
+    "output": "all numeric arrays finite and first dimension aligned to frame_times_sec",
+    "npz_write": "atomic temporary file + replace; existing outputs require --overwrite"
+  },
+  "limitations": [
+    "Descriptors are diagnostic estimates, not ground truth or production-grade acoustic analysis.",
+    "F0 autocorrelation may make octave errors or fail on breathy/unvoiced/noisy singing.",
+    "Formant estimation is coarse FFT/envelope peak picking; singing formants may be missed.",
+    "HNR, breathiness, aperiodicity, and voice-quality descriptors require manual/independent validation.",
+    "No forced alignment between audio, MIDI, lyrics, or phonemes is inferred.",
+    "P2 does not implement singing synthesis model training or waveform generation."
+  ]
+}
