@@ -1,0 +1,1 @@
+{"project":"RG Singing AI Recording Tool","version":"1.0.0","protocol_version":"1.0.0","audio":{"sample_rate":44100,"bit_depth":24,"channels":1,"format":"PCM WAV"},"original_wav_policy":"no_processing"}
