@@ -1,40 +1,40 @@
 # RG Singing AI Recording Tool v1.3.0-P2.1
 
-Windows 10/11、Python 3.10+向けのローカル録音ツールです。外部APIやテレメトリは実装していません。v1.1.0を基に、P0（データ仕様・QC・MIDI参照注釈・起動前検証）を反映しました。
+A local recording tool for Windows 10/11 and Python 3.10+. It does not implement external APIs or telemetry. Based on v1.1.0, P0 (data specifications, QC, MIDI reference annotations, and pre-launch validation) has been reflected.
 
-## 起動（PowerShell）
-展開先で実行します。初回は仮想環境と依存ライブラリを作成します。
+## Launch (PowerShell)
+Run in the extraction folder. The first run creates a virtual environment and installs dependent libraries.
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
 .\run.ps1
 ```
 
-## 機能
-- 44.1 kHz、モノラル、PCM 24-bit WAV録音
-- 入力デバイス選択、録音開始/停止、経過時間表示
-- クリック音とA4=440 Hz基準音（録音ファイルにはミックスしません）
-- MIDIノート、テンポ、拍子を読み込み、ト音記号の簡易五線譜と歌詞を表示
-- TXT/LRC歌詞読み込み、Take ID自動採番
-- MIDI/歌詞参照ファイル、メタデータJSON、QC JSONを保存
-- MIDIノートイベントの参照注釈JSONを保存（音声アラインメントとは明確に区別）
-- WAVのSHA-256、メタデータスキーマ検証、JSONの一時ファイル経由での原子的保存
-- 起動前にPython/Tkinter/主要依存モジュールを検査
-- QC: サンプルレート、チャンネル、形式、長さ、ピーク/RMS dBFS、無音率、クリッピング率
+## Features
+- 44.1 kHz, mono, PCM 24-bit WAV recording
+- Input device selection, recording start/stop, elapsed time display
+- Click sound and A4=440 Hz reference tone (not mixed into the recording file)
+- Loads MIDI notes, tempo, and time signature, displaying a simple treble clef staff and lyrics
+- TXT/LRC lyrics loading, automatic Take ID numbering
+- Saves MIDI/lyrics reference files, metadata JSON, and QC JSON
+- Saves reference annotation JSON for MIDI note events (clearly distinguished from audio alignment)
+- WAV SHA-256 calculation, metadata schema validation, atomic saving of JSON via temporary files
+- Inspects Python/Tkinter/main dependent modules before launching
+- QC: Sample rate, channels, format, duration, peak/RMS dBFS, silence ratio, clipping ratio
 
-## データ構造
-`RG_SingingAI_Dataset/raw/audio/` にWAV、`metadata/` にメタデータ、`reference/midi/` と `reference/lyrics/` に参照ファイル、`annotations/note/` にMIDIノート参照、`qc/` に品質レポートを保存します。メタデータ仕様は `dataset_template/metadata.schema.json` を参照してください。
+## Data Structure
+Saves WAV files in `RG_SingingAI_Dataset/raw/audio/`, metadata in `metadata/`, reference files in `reference/midi/` and `reference/lyrics/`, MIDI note references in `annotations/note/`, and quality reports in `qc/`. For metadata specifications, see `dataset_template/metadata.schema.json`.
 
-## QC判定
-- `FAIL`: ファイルが空、またはサンプルレート/チャンネル/形式が仕様と異なるなどのエラー
-- `WARN`: ピークがフルスケール付近、無音率が高い、RMSが低い可能性など。休符やブレスがあるため自動的に録音を破棄しません
-- `PASS`: 上記エラー・警告なし
+## QC Evaluation
+- `FAIL`: Errors such as empty file, or sample rate/channels/format differing from specifications
+- `WARN`: Possibility of peak near full scale, high silence ratio, low RMS, etc. Recordings are not automatically discarded due to rests or breaths
+- `PASS`: No above errors or warnings
 
-## アラインメント上の重要な制約
-`annotations/note/*.json` は MIDI のノートイベントを秒・tick単位で記録する参照データです。録音波形上の音素境界を自動推定したものではありません。MIDIノート開始時刻と音声の発音開始時刻を同一視せず、音声/音素アラインメントは別工程で検証・手動修正する必要があります。TXT歌詞は文字単位、LRCは時刻ベースの近似割当てであり、日本語のモーラ/音素と音符の対応は手動確認が必要です。
+## Important Alignment Constraints
+`annotations/note/*.json` is reference data recording MIDI note events in seconds and ticks. It does not automatically estimate phoneme boundaries on the recorded waveform. Do not equate MIDI note start times with audio onset times; audio/phoneme alignment must be verified and manually corrected in a separate process. TXT lyrics are character-based, LRC is time-based approximate allocation, and correspondence between Japanese mora/phoneme and musical notes requires manual verification.
 
-## 既知の制約
-譜面は簡易表示であり、出版譜相当の浄書ではありません。音価に基づく正確な符尾/連桁、休符の完全な記譜、タイ、付点、連符、調号、異名同音の文脈判定、拍子変更時の厳密な小節再構成は未実装です。録音機器の実動作は対象PCのマイク/ドライバーで確認してください。ヘッドホンを推奨します。
+## Known Limitations
+The score is a simplified display and not engraving equivalent to published sheet music. Accurate stems/beams based on note values, complete notation of rests, ties, dots, tuplets, key signatures, contextual enharmonic judgment, and strict measure reconstruction upon time signature changes are unimplemented. Verify actual operation of recording equipment with the target PC's microphone/drivers. Headphones are recommended.
 
 
 ## P1 additions
@@ -171,10 +171,10 @@ The GUI can select a mono 44.1 kHz WAV and extract P1/P2 diagnostic features to 
 - Red `×` markers on the F0 plot indicate large adjacent F0 jumps.
 - Orange outlined circles on the confidence plot indicate low-confidence frames.
 - Red circles on the RMS plot indicate low-RMS frames.
-- Select a QC table row to show a red dashed cursor and zoom to the surrounding 1.5-second interval. Use **全体表示** to restore the full timeline.
+- Select a QC table row to show a red dashed cursor and zoom to the surrounding 1.5-second interval. Use **Show All** to restore the full timeline.
 - The on-screen table prioritizes actionable flags (low confidence, low RMS, large F0 jump). CSV output continues to include all frames and flags.
 
 
 ## P3.4 QC table markers
 
-The QC frame list now shows visible symbols in its finding column: `× 大F0ジャンプ`, `○ 低信頼度`, `● 低RMS`, and `— F0未推定/無声音候補`. Row text color helps distinguish the finding type; combined findings use a separate color. The exported CSV keeps the original machine-readable flag values.
+The QC frame list now shows visible symbols in its finding column: `× Large F0 jump`, `○ Low confidence`, `● Low RMS`, and `— Unestimated F0/unvoiced candidate`. Row text color helps distinguish the finding type; combined findings use a separate color. The exported CSV keeps the original machine-readable flag values.
