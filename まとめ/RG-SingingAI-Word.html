@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>markdown document</title>
+  <style>
+    body { margin: 0; color: #171717; background: #ffffff; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.7; }
+    main { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+    h1, h2, h3, h4, h5, h6 { line-height: 1.25; margin: 1.4em 0 0.6em; }
+    h1 { font-size: 2.25rem; margin-top: 0; }
+    table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; }
+    th, td { border: 1px solid #d4d4d4; padding: 0.6rem 0.75rem; text-align: left; vertical-align: top; }
+    th { background: #f5f5f5; }
+    pre { overflow-x: auto; background: #171717; color: #f5f5f5; padding: 1rem; border-radius: 0.5rem; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+    :not(pre) > code { background: #f5f5f5; color: #171717; padding: 0.15rem 0.35rem; border-radius: 0.25rem; }
+    blockquote { border-left: 4px solid #d4d4d4; margin-left: 0; padding-left: 1rem; color: #525252; }
+    img { max-width: 100%; height: auto; }
+  </style>
+</head>
+<body>
+  <main><div class="prose prose-neutral dark:prose-invert mx-auto max-w-3xl break-words"><h1 id="rg-singing-ai-技術資料-専門用語集">RG Singing AI 技術資料 専門用語集</h1>
+<p>本書は『RG Singing AI Recording Tool v1.3.1 P3.4 — QC Table Markers』の技術資料に登場する、音楽・音声処理・音響学・機械学習・ソフトウェアエンジニアリングに関する専門用語を分類・解説した用語集です。</p>
+<hr>
+<h2 id="1-音声処理音響学音楽に関する専門用語">1. 音声処理・音響学・音楽に関する専門用語</h2>
+<h3 id="音響特徴量分析">【音響特徴量・分析】</h3>
+<ul>
+<li><strong>F0（基本周波数 / Fundamental Frequency）</strong><br>
+声帯振動の周期に対応する周波数。知覚される音の高さ（音高 / ピッチ）に直接関連します。単位は Hz（ヘルツ）。</li>
+<li><strong>RMS（Root Mean Square / 平方平均平方根）</strong><br>
+音声信号の振幅（強さ・大きさ）を表す統計的指標。実効値とも呼ばれ、音量の目安として利用されます。</li>
+<li><strong>Log-Mel Spectrogram（対数メルスペクトログラム）</strong><br>
+人間の耳の周波数知覚特性（メル尺度）に基づいてフィルタリングした周波数成分（スペクトログラム）に対し、対数変換を行った時間・周波数の2次元特徴量。音色や音素の分析・モデル入力に多用されます。</li>
+<li><strong>スペクトル包絡（Spectral Envelope）</strong><br>
+複雑な周波数スペクトルの山（ピーク）を結んだ滑らかな外形線。声帯振動（励振成分）を除いた声道（喉や口の形状）による共鳴特性（音色や母音の特徴）を表します。</li>
+<li><strong>フォルマント（Formant）</strong><br>
+声道の共鳴によって強調される特定の周波数帯域。低い方から <mjx-container class="MathJax" jax="SVG"><svg xmlns="http://www.w3.org/2000/svg" width="9.339ex" height="1.977ex" role="img" focusable="false" viewBox="0 -680 4128 874" xmlns:xlink="http://www.w3.org/1999/xlink" style="vertical-align: -0.439ex;"><defs><path id="MJX-1-TEX-I-1D439" d="M48 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q146 66 215 342T285 622Q285 629 281 629Q273 632 228 634H197Q191 640 191 642T193 659Q197 676 203 680H742Q749 676 749 669Q749 664 736 557T722 447Q720 440 702 440H690Q683 445 683 453Q683 454 686 477T689 530Q689 560 682 579T663 610T626 626T575 633T503 634H480Q398 633 393 631Q388 629 386 623Q385 622 352 492L320 363H375Q378 363 398 363T426 364T448 367T472 374T489 386Q502 398 511 419T524 457T529 475Q532 480 548 480H560Q567 475 567 470Q567 467 536 339T502 207Q500 200 482 200H470Q463 206 463 212Q463 215 468 234T473 274Q473 303 453 310T364 317H309L277 190Q245 66 245 60Q245 46 334 46H359Q365 40 365 39T363 19Q359 6 353 0H336Q295 2 185 2Q120 2 86 2T48 1Z"></path><path id="MJX-1-TEX-N-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path id="MJX-1-TEX-N-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path id="MJX-1-TEX-N-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path id="MJX-1-TEX-N-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="msub"><g data-mml-node="mi"><use data-c="1D439" xlink:href="#MJX-1-TEX-I-1D439"></use></g><g data-mml-node="mn" transform="translate(676,-150) scale(0.707)"><use data-c="31" xlink:href="#MJX-1-TEX-N-31"></use></g></g><g data-mml-node="mo" transform="translate(1079.6,0)"><use data-c="2C" xlink:href="#MJX-1-TEX-N-2C"></use></g><g data-mml-node="msub" transform="translate(1524.2,0)"><g data-mml-node="mi"><use data-c="1D439" xlink:href="#MJX-1-TEX-I-1D439"></use></g><g data-mml-node="mn" transform="translate(676,-150) scale(0.707)"><use data-c="32" xlink:href="#MJX-1-TEX-N-32"></use></g></g><g data-mml-node="mo" transform="translate(2603.8,0)"><use data-c="2C" xlink:href="#MJX-1-TEX-N-2C"></use></g><g data-mml-node="msub" transform="translate(3048.4,0)"><g data-mml-node="mi"><use data-c="1D439" xlink:href="#MJX-1-TEX-I-1D439"></use></g><g data-mml-node="mn" transform="translate(676,-150) scale(0.707)"><use data-c="33" xlink:href="#MJX-1-TEX-N-33"></use></g></g></g></g></svg></mjx-container> と呼ばれ、主に母音の識別や音質に関係します。</li>
+<li><strong>HNR（Harmonics-to-Noise Ratio / 調波対雑音比）</strong><br>
+音声に含まれる周期的な成分（調波）と非周期的な成分（雑音）の強さの比率。声のクリアさやノイズ感、かすれ具合（息声）の指標となります。</li>
+<li><strong>有声音（Voiced Sound） / 無声音（Unvoiced Sound）</strong><br>
+有声音は発声時に声帯振動を伴う音（母音や「ま行」「な行」など）、無声音は声帯振動を伴わない音（「さ行」「か行」の子音や息の音など）。</li>
+<li><strong>倍音（Harmonics）</strong><br>
+基本周波数（F0）の整数倍の周波数を持つ成分。音色の深みや豊かさを形成します。</li>
+<li><strong>オクターブ誤り（Octave Error）</strong><br>
+F0推定アルゴリズムが、本来の基本周波数の2倍（1オクターブ上）や1/2（1オクターブ下）の周波数を誤って基本周波数として検出してしまう現象。</li>
+</ul>
+<hr>
+<h3 id="音楽表現歌唱技法">【音楽表現・歌唱技法】</h3>
+<ul>
+<li><strong>ビブラート（Vibrato）</strong><br>
+歌唱や演奏において、音高（ピッチ）を周期的に揺らす歌唱・演奏表現。</li>
+<li><strong>ポルタメント（Portamento） / グリッサンド（Glissando）</strong><br>
+ある音高から別の音高へ滑らかに音を移動させる演奏・歌唱技法。</li>
+<li><strong>レガート（Legato）</strong><br>
+音と音の間に切れ目を入れず、滑らかに続けて演奏・歌唱すること。</li>
+<li><strong>セント（Cent）</strong><br>
+平均律における音程の最小単位。1オクターブ＝1,200セント、半音＝100セントとして定量的に音高差を表します。</li>
+<li><strong>ブレス（Breath）</strong><br>
+歌唱における呼吸・息を吸う音、または息を吐く動作。</li>
+</ul>
+<hr>
+<h3 id="デジタル音声信号処理">【デジタル音声・信号処理】</h3>
+<ul>
+<li><strong>PCM（Pulse Code Modulation / パルス符号変調）</strong><br>
+アナログ音声信号を定期的に標本化・量子化してデジタルデータに変換する最も基本的な音声フォーマット（WAVファイル等で使用）。</li>
+<li><strong>サンプリング周波数（Sampling Rate / Frequency）</strong><br>
+1秒間あたりの音声信号の標本化（採寸）回数。単位は Hz（例: 44,100 Hz = 1秒間に44,100回のデータを記録）。</li>
+<li><strong>モノラル（Monomorphic / Mono）</strong><br>
+単一のオーディオチャンネルで構成された音声。</li>
+<li><strong>フレーム（Frame）</strong><br>
+時間とともに変化する音声を分析するために切り出した短時間（数十ミリ秒程度）の区間単位。</li>
+<li><strong>ホップ長（Hop Length）</strong><br>
+隣り合う分析フレーム同士の開始位置の間隔（ずらし幅）。</li>
+<li><strong>窓関数（Window Function）</strong><br>
+フレーム単位に切り出す際、端部の不連続による歪みを抑えるために乗算する関数（ハニング窓など）。</li>
+<li><strong>FFT（Fast Fourier Transform / 高速フーリエ変換）</strong><br>
+時間領域の波形データを周波数領域の成分に高速で分解・変換するアルゴリズム。</li>
+<li><strong>クリッピング（Clipping）</strong><br>
+入力信号の振幅が許容最大値を超えたことで波形の頂点が潰れ、ひずみが生じる現象。</li>
+<li><strong>DCオフセット（DC Offset）</strong><br>
+音声波形の中心軸（ゼロクロスライン）が直流成分（0V）から上下にズレてしまう現象。</li>
+</ul>
+<hr>
+<h2 id="2-機械学習aiデータサイエンスに関する専門用語">2. 機械学習・AI・データサイエンスに関する専門用語</h2>
+<ul>
+<li><strong>教師データ（Training Data / 教師信号）</strong><br>
+機械学習モデルに学習させるための「入力データ」と「正しい出力（正解ラベル）」の組み合わせ。</li>
+<li><strong>アノテーション（Annotation）</strong><br>
+データ（音声・画像など）に対して、歌詞、音素、音程、タイミング境界などの意味情報（ラベル）を付与する作業。</li>
+<li><strong>アラインメント（Alignment）</strong><br>
+音声波形データと歌詞・音素・MIDI等のテキスト/記号データとの時間的な位置合わせ・対応付け。</li>
+<li><strong>データセット（Dataset）</strong><br>
+モデルの学習・検証・テストのために収集・整理・構造化されたデータの集合。</li>
+<li><strong>過学習（Overfitting）</strong><br>
+モデルが訓練データだけに過剰に適合してしまい、見たことのない未知のデータに対する予測・生成精度が低下する現象。</li>
+<li><strong>データリーク（Data Leakage）</strong><br>
+本来テスト・検証用データとして分けるべき情報が学習用データに混入し、評価結果が不当に良く見えてしまう問題。</li>
+<li><strong>ベースライン（Baseline）</strong><br>
+新しい手法やモデルの性能を比較・評価する際の基準となる、標準的かつシンプルな既存モデルやシステム。</li>
+<li><strong>代理指標（Proxy Metric / Proxy Indicator）</strong><br>
+直接測定することが困難な対象の代わりに、その妥当性の目安として利用する参考値（例: <code class="rounded bg-secondary px-1.5 py-0.5 font-mono text-sm text-foreground/90">f0_confidence_proxy</code>）。</li>
+<li><strong>音響モデル（Acoustic Model）</strong><br>
+歌詞や楽譜などの言語・音楽的情報から、音響特徴量（メルスペクトログラムやF0など）を予測・生成する機械学習モデル。</li>
+<li><strong>ボコーダー（Vocoder）</strong><br>
+メルスペクトログラムなどの音響特徴量を、最終的な聴取可能な音声波形へ変換・復元するモデル/アルゴリズム。</li>
+<li><strong>評価指標（QC精度評価）</strong>
+<ul>
+<li><strong>真陽性（TP）</strong>: 異常（問題あり）を正しく異常と検出すること。</li>
+<li><strong>偽陽性（FP）</strong>: 正常なデータを誤って異常と検出すること（誤検知）。</li>
+<li><strong>真陰性（TN）</strong>: 正常なデータを正しく正常と判定すること。</li>
+<li><strong>偽陰性（FN）</strong>: 異常なデータを見逃して正常と判定すること（見落とし）。</li>
+<li><strong>適合率（Precision）</strong>: 検出した問題候補のうち、実際に正しかった割合。</li>
+<li><strong>再現率（Recall）</strong>: 実際に存在する問題のうち、正しく検出できた割合。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="3-ソフトウェアシステムエンジニアリングに関する専門用語">3. ソフトウェア・システムエンジニアリングに関する専門用語</h2>
+<ul>
+<li><strong>QC（Quality Control / 品質管理）</strong><br>
+製品やデータの品質基準を満たしているかを検証・担保する一連の管理プロセス。</li>
+<li><strong>GUI（Graphical User Interface）</strong><br>
+画面上のボタンやウィンドウなど、視覚的・直感的に操作できるユーザーインターフェース。</li>
+<li><strong>MIDI（Musical Instrument Digital Interface）</strong><br>
+電子楽器やコンピュータ間で演奏情報（音符の高さ、長さ、強さなど）を伝達するための統一規格。</li>
+<li><strong>NPZ</strong><br>
+Pythonの数値計算ライブラリ「NumPy」において、複数の配列（Array）データをまとめて非圧縮/圧縮保存する標準ファイル形式（<code class="rounded bg-secondary px-1.5 py-0.5 font-mono text-sm text-foreground/90">.npz</code>）。</li>
+<li><strong>メタデータ（Metadata）</strong><br>
+データに関するデータ。音声データに付随する録音日時、話者ID、ファイル長、ハッシュ値などの属性情報。</li>
+<li><strong>SHA-256</strong><br>
+任意のデータから256ビットの固定長ハッシュ値を計算する暗号学的ハッシュ関数。データの破損や改ざん、改変がないかのチェック（完全性確認）に使用されます。</li>
+<li><strong>パディング（Padding）</strong><br>
+配列やデータ長を一定のサイズに揃えるため、データの前後や末尾に0などの固定値を埋め込む処理。</li>
+<li><strong>NaN（Not a Number） / Inf（Infinity）</strong><br>
+コンピュータの浮動小数点数における「非数（計算不能・未定義）」および「無限大」を表す特殊な値。</li>
+<li><strong>Python仮想環境（Virtual Environment）</strong><br>
+プロジェクトごとに独立したPython実行環境（ライブラリ依存関係）を作成・管理する仕組み。</li>
+<li><strong>テレメトリ（Telemetry）</strong><br>
+ソフトウェアの使用状況やエラーログなどを遠隔地のサーバーへ自動送信・収集する仕組み。</li>
+</ul>
+<hr>
+<h2 id="4-抽出検証結果ダブルチェック報告">4. 抽出・検証結果（ダブルチェック報告）</h2>
+<p>元の技術資料から以下の項目についての漏れがないことを再確認済みです。</p>
+<ol>
+<li><strong>音響・音楽分野</strong>: 基本周波数(F0)、RMS、Log-Mel、スペクトル包絡、フォルマント、HNR、有声/無声、倍音、オクターブ誤り、各歌唱表現（ビブラート等）、PCM/サンプリング周波数/FFT等の信号処理用語。</li>
+<li><strong>AI・機械学習分野</strong>: 教師データ、アノテーション、アラインメント、データリーク、音響モデル、ボコーダー、評価指標（TP/FP/TN/FN/適合率/再現率等）。</li>
+<li><strong>システム分野</strong>: QC、GUI、MIDI、NPZ、メタデータ、SHA-256、パディング、環境設定用語等。</li>
+</ol><style>
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+</style></div></main>
+</body>
+</html>
