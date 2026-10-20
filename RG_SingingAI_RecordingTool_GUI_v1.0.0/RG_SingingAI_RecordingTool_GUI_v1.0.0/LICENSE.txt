@@ -1,1 +1,0 @@
-Personal project source bundle. Third-party dependencies retain their own licenses.
