@@ -1,0 +1,29 @@
+
+{
+  "phonemes": [
+    {
+      "label": "a",
+      "start": 0.0,
+      "end": 0.4
+    },
+    {
+      "label": "i",
+      "start": 0.4,
+      "end": 0.8
+    }
+  ],
+  "notes": [
+    {
+      "start": 0.0,
+      "end": 0.4,
+      "pitch": 60,
+      "velocity": 90
+    },
+    {
+      "start": 0.4,
+      "end": 0.8,
+      "pitch": 64,
+      "velocity": 95
+    }
+  ]
+}
