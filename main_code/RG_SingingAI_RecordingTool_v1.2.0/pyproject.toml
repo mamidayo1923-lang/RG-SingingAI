@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "rg-singing-ai-recording-tool"
+version = "1.2.0"
+description = "Local recording tool for RG Singing AI"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.26", "sounddevice>=0.4.6", "soundfile>=0.12.1", "mido>=1.3.2"]
+[project.scripts]
+rg-recording-tool = "recording_tool.app:main"
+[tool.setuptools.packages.find]
+include = ["recording_tool*"]

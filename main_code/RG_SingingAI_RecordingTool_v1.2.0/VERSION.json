@@ -1,0 +1,7 @@
+{
+  "name": "RG Singing AI Recording Tool",
+  "version": "1.2.0",
+  "based_on": "1.1.0",
+  "release_date": "2026-10-15",
+  "scope": "P0 dataset contract, recording QC, MIDI event annotation, integrity and startup validation"
+}
