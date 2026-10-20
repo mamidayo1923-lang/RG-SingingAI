@@ -1,2 +1,0 @@
-[console_scripts]
-rg-recording-tool = recording_tool.app:main
