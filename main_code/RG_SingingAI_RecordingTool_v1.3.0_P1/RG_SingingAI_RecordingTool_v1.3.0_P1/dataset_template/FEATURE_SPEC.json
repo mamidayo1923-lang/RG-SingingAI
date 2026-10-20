@@ -1,0 +1,16 @@
+{
+  "feature_schema_version": "1.0.0",
+  "baseline_feature_config": {
+    "sample_rate": 44100,
+    "n_fft": 2048,
+    "hop_length": 256,
+    "n_mels": 80,
+    "window": "hann",
+    "mel_scale": "htk",
+    "f0_min_hz": 65.0,
+    "f0_max_hz": 1000.0,
+    "f0_method": "normalized_autocorrelation_baseline_not_production_grade"
+  },
+  "timing_convention": "frame_times_sec is frame start time; center correction is not applied",
+  "note": "Feature settings are versioned. F0 estimator is a diagnostic baseline, not a production-grade pitch tracker. No audio/phoneme forced alignment is inferred."
+}

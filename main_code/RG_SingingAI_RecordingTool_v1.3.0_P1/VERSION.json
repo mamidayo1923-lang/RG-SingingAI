@@ -1,0 +1,7 @@
+{
+  "name": "RG Singing AI Recording Tool",
+  "version": "1.3.0",
+  "based_on": "1.2.0",
+  "release_date": "2026-10-15",
+  "scope": "P1 feature extraction configuration, leakage-resistant group splits, baseline acoustic features and evaluation metrics"
+}
