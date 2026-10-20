@@ -1,0 +1,25 @@
+{
+  "feature_schema_version": "2.0.0",
+  "inherits": "P1 log-Mel + baseline autocorrelation F0",
+  "sample_rate": 44100,
+  "n_fft": 2048,
+  "hop_length": 256,
+  "n_mels": 80,
+  "frame_time_convention": "frame start time; no center correction",
+  "outputs": {
+    "log_mel": "(frames,80) log mel power",
+    "f0_hz": "rough autocorrelation F0; 0 means unvoiced/low confidence",
+    "spectral_envelope": "log-smoothed magnitude spectrum (frames,1025)",
+    "hnr_db_proxy": "autocorrelation periodicity proxy in dB; not calibrated HNR",
+    "formants_hz_estimate": "up to 3 coarse spectral peak estimates; zeros mean unavailable",
+    "aperiodicity_proxy": "spectral flatness in [0,1]",
+    "breathiness_proxy": "fraction of spectral power above 4kHz in [0,1]",
+    "voice_quality_proxy": "columns [hnr_db_proxy, aperiodicity_proxy, breathiness_proxy]"
+  },
+  "limitations": [
+    "Descriptors are diagnostic estimates, not ground truth or production-grade acoustic analysis.",
+    "Formant estimation is coarse FFT peak picking; singing formants may be missed.",
+    "HNR and voice-quality descriptors require manual/independent validation.",
+    "No forced alignment between audio and MIDI/phonemes is inferred."
+  ]
+}
