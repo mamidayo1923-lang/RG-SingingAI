@@ -1,0 +1,20 @@
+{
+  "sample_id": "S001_000001",
+  "phonemes": [
+    {
+      "phoneme": "a",
+      "start": 0.000,
+      "end": 0.250
+    },
+    {
+      "phoneme": "sh",
+      "start": 0.250,
+      "end": 0.420
+    },
+    {
+      "phoneme": "i",
+      "start": 0.420,
+      "end": 0.700
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+numpy>=1.26
+scipy>=1.12
+soundfile>=0.12
+PyYAML>=6.0
+mido>=1.3
+librosa>=0.10.2
+pyworld>=0.3.4
+praat-parselmouth>=0.4.3
