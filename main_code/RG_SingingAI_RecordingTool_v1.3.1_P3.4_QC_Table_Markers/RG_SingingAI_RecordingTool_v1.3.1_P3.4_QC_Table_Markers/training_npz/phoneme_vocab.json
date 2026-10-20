@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0",
+  "padding_id": 0,
+  "label_to_id": {
+    "a": 1,
+    "i": 2
+  }
+}
